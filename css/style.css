@@ -1,0 +1,56 @@
+
+html {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	/*overflow: hidden;  */
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: clamp(11px, 1vw, 500px);
+	color: black;
+}
+
+body {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	/*overflow: hidden;  */
+	color: black;
+}
+
+
+#side_menu {
+	border: solid red 1px;
+	position: fixed;
+	left: 0;
+	height: 100vh;
+	width: 20vw;
+	padding-top: 15vh;
+	padding-right: 2vw;
+	text-align: right;
+}
+
+#side_menu_content {
+	border: solid green 1px;
+}
+
+#name_title {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 3rem;
+	line-height: 4rem;
+}
+
+#category_selector div {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.5rem;
+	line-height: 2.6rem;
+}
+
+#category_selector {
+	margin: 4rem 0px;
+}

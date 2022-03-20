@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="src/img/icon/search_icon.png" />
+
+	<title>Emmanuel Michta</title>
+
+	<!-- libs -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- VUE -->
+	<script src="https://unpkg.com/vue@next"></script>
+
+	<!-- custom style -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+
+
+</head>
+
+<body id="app">
+	<div id="side_menu">
+		<div id="name_title">EMMANUEL<br/>MICHTA</div>
+		<div id="category_selector">
+			<div>Projects</div>
+			<div>Publications</div>
+			<div>Background</div>
+			<div>Enseignement</div>
+			<div>Contact</div>
+		</div>
+	</div>
+
+
+
+	<footer></footer>
+</body>
+
+<script>
+	let vm = Vue.createApp({
+		data() {
+			return {
+				text: "content aware",
+			}
+		},
+		methods: {
+			dlCanvas() {},
+		},
+		watch: {
+			text: {
+				handler: function(val) {
+					const canvas = document.getElementById("text_mask")
+					const context = canvas.getContext('2d');
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					// draw text
+					context.font = vm.text_size + 'px ' + vm.text_font;
+					context.fillStyle = vm.text_color;
+					context.fillText(vm.text, vm.text_pos.x, vm.text_pos.y);
+				},
+				deep: true
+			},
+		}
+	})
+
+
+
+	vm = vm.mount('#app');
+</script>
+
+</html>
