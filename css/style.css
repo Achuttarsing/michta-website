@@ -1,4 +1,3 @@
-
 html {
 	background-color: white;
 	margin: 0;
@@ -6,7 +5,7 @@ html {
 	width: 100vw;
 	/*overflow: hidden;  */
 	font-family: 'IBM Plex Mono', monospace;
-	font-size: clamp(11px, 1vw, 500px);
+	font-size: clamp(5px, 0.9vw, 500px);
 	color: black;
 }
 
@@ -22,13 +21,19 @@ body {
 
 #side_menu {
 	border: solid red 1px;
+	box-sizing: border-box;
 	position: fixed;
-	left: 0;
+	/* left: 0; */
 	height: 100vh;
 	width: 20vw;
-	padding-top: 15vh;
-	padding-right: 2vw;
-	text-align: right;
+	/* padding-top: 15vh; */
+	/* padding-right: 2vw; */
+	/* text-align: right; */
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 2rem;
 }
 
 #side_menu_content {
@@ -52,5 +57,115 @@ body {
 }
 
 #category_selector {
-	margin: 4rem 0px;
+}
+
+/* content section */
+
+section {
+	--padding: 5rem;
+
+	border: solid green 4px;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+	padding: var(--padding);
+	padding-left: calc(20vw + var(--padding));
+}
+
+.section_title {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 4rem;
+	line-height: 86px;
+}
+
+/* PUBLICATION */
+
+#publications_container {
+	/* 	border: solid pink 4px; */
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px 20px;
+
+}
+
+.one_paper {
+	width: 30rem;
+	/* Auto layout */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+	padding: 30px;
+	margin: 10px;
+	gap: 1rem;
+
+	border: 1px dashed #000000;
+	box-sizing: border-box;
+}
+
+.paper_controls {
+	/* Auto layout */
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.3rem;
+}
+
+.paper_controls div {
+	box-sizing: border-box;
+	padding: 0.2rem 1.1rem;
+}
+
+.paper_read_button {
+	border: black solid 1px;
+	background-color: black;
+	color: white;
+	margin-right: 0.6rem;
+}
+
+.paper_cite_button {
+	border: black solid 1px;
+	margin-left: 0.6rem;
+}
+
+.paper_title {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.paper_description {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.3rem;
+}
+
+.paper_collaboration {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
+}
+
+.collaboration_gif {
+	height: 2rem;
+	margin-right: 0.8rem;
+}
+
+/* Interest section */
+
+#interests_section_content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 }

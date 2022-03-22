@@ -10,10 +10,12 @@
 	<title>Emmanuel Michta</title>
 
 	<!-- libs -->
-	<link rel="preconnect" href="https://fonts.googleapis.com"> 
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 	<!-- VUE -->
 	<script src="https://unpkg.com/vue@next"></script>
@@ -28,15 +30,43 @@
 
 <body id="app">
 	<div id="side_menu">
-		<div id="name_title">EMMANUEL<br/>MICHTA</div>
+		<div id="name_title">EMMANUEL<br />MICHTA</div>
+		<div>I am a second year PhD student in the probability group of the University of British Columbia. My supervisor is Pr. Gordon Slade</div>
 		<div id="category_selector">
-			<div>Projects</div>
-			<div>Publications</div>
-			<div>Background</div>
-			<div>Enseignement</div>
 			<div>Contact</div>
+			<div>Research interests</div>
+			<div>Background</div>
+			<div>Publications</div>
 		</div>
 	</div>
+
+	<section id="publications_section">
+		<div class="section_title">Publications</div>
+		<div id="publications_container">
+			<paper v-for="item in publications" :paper=item></paper>
+		</div>
+	</section>
+
+	<section id="interests_section">
+		<div class="section_title">Research interests</div>
+		<div id="interests_section_content">
+			<div id="percolation_animation"></div>
+			<div> I am interested in models from statistical physics such as percolation, self-avoiding walks, spin systems and their scaling limits especially in high-dimensions.</div>
+		</div>
+	</section>
+
+	<section id="background_section">
+		<div class="section_title">Background</div>
+		<div>I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Roland Bauerschmidt and Florian Simatos respectively. (rajouter des liens vers les écoles)</div>
+	</section>
+
+	<section id="contact_section">
+		<div class="section_title">Contact</div>
+		<div>michta"^"math.ubc.ca , Office : AUDX133 , academic address: 1984 Mathematics Rd, Vancouver, BC V6T 1Z2</div>
+	</section>
+
+
+
 
 
 
@@ -47,31 +77,86 @@
 	let vm = Vue.createApp({
 		data() {
 			return {
-				text: "content aware",
+				publications: [{
+						title: "The Probabilistic Gap Explained",
+						description: "Publié dans CHI‘21 (Proceedings of the 39th ACM Conference on Human Factors in Computing Systems) en 2021.",
+						in_collaboration_with: "G. Slade"
+					},
+					{
+						title: "Understanding Life Through Probabilities",
+						description: "Publié dans CHI‘21 (Proceedings of the 39th ACM Conference on Human Factors in Computing Systems) en 2021.",
+						in_collaboration_with: ""
+					},
+					{
+						title: "The All Along The Watchtower Probabilistic Theory",
+						description: "Publié dans CHI‘21 (Proceedings of the 39th ACM Conference on Human Factors in Computing Systems) en 2021.",
+						in_collaboration_with: "J. Hendrix"
+					}
+				],
 			}
 		},
-		methods: {
-			dlCanvas() {},
-		},
+		methods: {},
 		watch: {
-			text: {
-				handler: function(val) {
-					const canvas = document.getElementById("text_mask")
-					const context = canvas.getContext('2d');
-					context.clearRect(0, 0, canvas.width, canvas.height);
-					// draw text
-					context.font = vm.text_size + 'px ' + vm.text_font;
-					context.fillStyle = vm.text_color;
-					context.fillText(vm.text, vm.text_pos.x, vm.text_pos.y);
-				},
-				deep: true
-			},
+
 		}
 	})
 
+	vm.component('paper', {
+		props: ['paper'],
+		data() {
+			return {
+				brightness_pct: 50,
+				active: false
+			}
+		},
+		template: `
+		<div class="one_paper">
+			<div class="paper_title" >{{paper.title}}</div>
+			<div class="paper_description" >{{paper.description}}</div>
+			<div v-if="paper.in_collaboration_with != ''" class="paper_collaboration" > <img class="collaboration_gif" src="assets/icons8-poignée-de-main.gif" />in collaboration with : {{paper.in_collaboration_with}}</div>
+			<div class="paper_controls">
+				<div class="paper_read_button">Read</div>
+				<div class="paper_cite_button">Cite</div>
+			</div>
+			
+		</div>`,
+		watch: {
 
+		}
+	})
 
 	vm = vm.mount('#app');
+</script>
+
+<script>
+	const width = 200
+	const height = 200
+	const square_size = 10
+	const nb_square = 10
+	const p = 0.5
+	const stroke_width = 2
+	const stroke_linecap = "square" // square, round, butt
+	document.getElementById('percolation_animation').innerHTML = '<svg id="svgTest" class="svg" width="' + width + '" height="' + height + '"></svg>'
+
+	const interval = setInterval(function() {
+		// method to be executed;
+		let svg_content = ""
+		for (const x of Array(nb_square).keys()) {
+			for (const y of Array(nb_square).keys()) {
+				if (Math.random() < p)
+					svg_content += '<line x1="' + String(stroke_width + square_size * x) + '" y1="' + String(stroke_width + square_size * y) + '" x2="' + String(stroke_width + square_size * (x + 1)) + '" y2="' + String(stroke_width + square_size * y) + '" stroke="black" stroke-width="' + String(stroke_width) + '" stroke-linecap="' + stroke_linecap + '" />'
+			}
+		}
+
+		for (const x of Array(nb_square).keys()) {
+			for (const y of Array(nb_square).keys()) {
+				if (Math.random() < p)
+					svg_content += '<line x1="' + String(stroke_width + square_size * x) + '" y1="' + String(stroke_width + square_size * y) + '" x2="' + String(stroke_width + square_size * x) + '" y2="' + String(stroke_width + square_size * (y + 1)) + '" stroke="black" stroke-width="' + String(stroke_width) + '" stroke-linecap="' + stroke_linecap + '" />'
+			}
+		}
+
+		document.getElementById('svgTest').innerHTML = svg_content
+	}, 800);
 </script>
 
 </html>
