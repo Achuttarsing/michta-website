@@ -190,7 +190,7 @@
 		data() {
 			return {
 				probability: 0.5,
-				refresh_frequency: 3000, //ms
+				refresh_frequency: 1000, //ms
 				nb_squares: 30
 			}
 		},
@@ -212,7 +212,7 @@
 		},
 		methods: {
 			refresh_percolation: function() {
-				const width = Math.min(window.innerHeight,window.innerWidth) * 0.35
+				const width = Math.min(window.innerHeight, window.innerWidth) * 0.35
 				const height = width
 				//const nb_square = 30
 				const stroke_width = 2
@@ -236,7 +236,11 @@
 			},
 			todo: function() {
 				this.intervalid1 = setInterval(async function() {
-					this.refresh_percolation()
+					console.log("isInViewport")
+					//console.log(isInViewport(document.getElementById('svgTest')))
+					if (isInViewport(document.getElementById('svgTest'))) {
+						this.refresh_percolation()
+					}
 					// for (const i of Array(15).keys()) {
 					// 	this.refresh_percolation()
 					// 	await new Promise(r => setTimeout(r, 60));
@@ -252,6 +256,17 @@
 
 
 <script>
+	function isInViewport(element) {
+		const rect = element.getBoundingClientRect();
+		console.log(rect.top, rect.bottom, window.innerHeight)
+		return (
+			rect.top >= 0 &&
+			rect.left >= 0 &&
+			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+		);
+	}
+
 	document.addEventListener("DOMContentLoaded", async function(event) {
 
 
