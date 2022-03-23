@@ -266,3 +266,13 @@ a:hover, a:visited, a:link, a:active
 	font-weight: 400;
 	font-size: 0.5rem;
 }
+
+footer {
+	padding: 3px;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 200;
+	font-size: 10px;
+	color: color(srgb 0.794 0.794 0.794);
+	text-align: center;
+}

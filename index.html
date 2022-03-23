@@ -77,6 +77,7 @@
 			<div><b>email :</b> michta{at}math.ubc.ca <br /> <b>office :</b> AUDX133 <br /> <b>academic address :</b> 1984 Mathematics Rd, Vancouver, BC V6T 1Z2</div>
 		</div>
 	</section>
+	<footer>Site designed by Adrien. App icon by <a href="https://icons8.com" target="_blank" rel="noopener noreferrer">icons8</a></footer>
 
 
 
@@ -141,7 +142,7 @@
 		<div class="one_paper">
 			<div class="paper_title" >{{paper.title}}</div>
 			<div class="paper_description" >{{paper.description}}</div>
-			<div v-if="paper.in_collaboration_with != ''" class="paper_collaboration" > <img class="collaboration_gif" src="assets/icons8-poignée-de-main.gif" />in collaboration with : {{paper.in_collaboration_with}}</div>
+			<div v-if="paper.in_collaboration_with != ''" class="paper_collaboration" > <img class="collaboration_gif" src="assets/poignee-de-main.gif" />in collaboration with : {{paper.in_collaboration_with}}</div>
 			<div class="paper_controls">
 				<a :href="paper.url" target="_blank" rel="noopener noreferrer"><div class="paper_read_button">Read</div></a>
 				<div class="paper_cite_button">Cite</div>
@@ -199,9 +200,9 @@
 			},
 			todo: function() {
 				this.intervalid1 = setInterval(async function() {
-					for (const i of Array(20).keys()) {
+					for (const i of Array(15).keys()) {
 						this.refresh_percolation()
-						await new Promise(r => setTimeout(r, 80));
+						await new Promise(r => setTimeout(r, 60));
 					}
 
 				}.bind(this), 7000);
