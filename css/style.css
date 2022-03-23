@@ -103,7 +103,7 @@ section {
 }
 
 .one_paper {
-	width: 30rem;
+	width: 45%;
 	/* Auto layout */
 	display: flex;
 	flex-direction: column;
@@ -115,6 +115,10 @@ section {
 
 	border: 1px dashed #000000;
 	box-sizing: border-box;
+}
+
+.arxiv_code {
+	/* text-align: right; */
 }
 
 .paper_controls {
@@ -170,6 +174,8 @@ a:hover, a:visited, a:link, a:active
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1rem;
+	max-height: 15rem;
+	overflow-y: scroll;
 }
 
 .paper_collaboration {
@@ -209,6 +215,10 @@ a:hover, a:visited, a:link, a:active
 	align-items: center;
 	justify-content: space-around;
 	gap: 10px;
+}
+
+.interests_section_content_text {
+	
 }
 
 /* background section */
@@ -265,6 +275,13 @@ a:hover, a:visited, a:link, a:active
 	font-style: normal;
 	font-weight: 400;
 	font-size: 0.5rem;
+}
+
+.narration_style {
+	font-family: 'IBM Plex Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.5rem;
 }
 
 footer {

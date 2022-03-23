@@ -59,8 +59,8 @@
 					<img id="profile_pic" src="assets/pp.jpg" />
 					<div class="legend">me (on the right)</div>
 				</div>
-				<div><b>email :</b> michta{at}math.ubc.ca <br /> <b>office :</b> AUDX133 <br /> <b>academic address :</b> 1984 Mathematics Rd, Vancouver, BC V6T 1Z2</div>
-				<div id="map" style="height: 100px; width: 100px;"></div>
+				<div class="narration_style"><b>email :</b> michta{at}math.ubc.ca <br /> <b>office :</b> AUDX133 <br /> <b>academic address :</b> 1984 Mathematics Rd, Vancouver, BC V6T 1Z2</div>
+				<!-- <div id="map" style="height: 100px; width: 100px;"></div> -->
 			</div>
 		</section>
 
@@ -69,7 +69,7 @@
 			<div id="interests_section_content">
 				<!-- 			<div id="percolation_animation"></div> -->
 				<percolation></percolation>
-				<div> I am interested in models from statistical physics such as percolation, self-avoiding walks, spin systems and their scaling limits especially in high-dimensions.</div>
+				<div id="interests_section_content_text" class="narration_style"> I am interested in models from statistical physics such as percolation, self-avoiding walks, spin systems and their scaling limits especially in high-dimensions.</div>
 			</div>
 		</section>
 
@@ -88,7 +88,7 @@
 					<img src="assets/university-of-cambridge-logo-3.png" />
 					<img src="assets/ubc_logo.jpg" />
 				</div>
-				<div>I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Roland Bauerschmidt and Florian Simatos respectively.</div>
+				<div class="narration_style">I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Roland Bauerschmidt and Florian Simatos respectively.</div>
 			</div>
 		</section>
 
@@ -112,28 +112,32 @@
 						description: "We prove that the scaling limit of the weakly self-avoiding walk on a $d$-dimensional discrete torus is Brownian motion on the continuum torus if the length of the rescaled walk is $o(V^{1/2})$ where $V$ is the volume (number of points) of the torus and if $d>4$. We also prove that the diffusion constant of the resulting torus Brownian motion is the same as the diffusion constant of the scaling limit of the usual weakly self-avoiding walk on $\\mathbb{Z}^d$. This provides further manifestation of the fact that the weakly self-avoiding walk model on the torus does not feel that it is on the torus up until it reaches about $V^{1/2}$ steps which we believe is sharp.",
 						in_collaboration_with: "",
 						url: "https://arxiv.org/abs/2203.07695",
-						published_in: "A Completer"
+						published_in: "A Completer",
+						arxiv_code: "arXiv:2203.07695"
 					},
 					{
 						title: "Weakly self-avoiding walk on a high-dimensional torus",
 						description: "How long does a self-avoiding walk on a discrete $d$-dimensional torus have to be before it begins to behave differently from a self-avoiding walk on $\\mathbb{Z}^d$? We consider a version of this question for weakly self-avoiding walk on a torus in dimensions $d>4$. On $\\mathbb{Z}^d$ for $d>4$, the partition function for $n$-step weakly self-avoiding walk is known to be asymptotically purely exponential, of the form $A\\mu^n$, where $\\mu$ is the growth constant for weakly self-avoiding walk on $\\mathbb{Z}^d$. We prove the identical asymptotic behaviour $A\\mu^n$ on the torus (with the same $A$ and $\\mu$ as on $\\mathbb{Z}^d$) until $n$ reaches order $V^{1/2}$, where $V$ is the number of vertices in the torus. This shows that the walk must have length of order at least $V^{1/2}$ before it ``feels'' the torus in its leading asymptotics. Our results support the conjecture that the behaviour of the partition function does change once $n$ reaches $V^{1/2}$, and we relate this to a conjectural critical scaling window which separates the dilute phase $n \\ll V^{1/2}$ from the dense phase $n \\gg V^{1/2}$. To prove the conjecture and to establish the existence of the scaling window remains a challenging open problem. The proof uses a novel lace expansion analysis based on the \"plateau\" for the torus two-point function obtained in previous work.",
 						in_collaboration_with: "G. Slade",
 						url: "https://arxiv.org/abs/2107.14170",
-						published_in: "A Completer"
+						published_in: "A Completer",
+						arxiv_code: "arXiv:2107.14170"
 					},
 					{
 						title: "High-dimensional near-critical percolation and the torus plateau",
 						description: "We consider percolation on $\\mathbb{Z}^d$ and on the $d$-dimensional discrete torus, in dimensions $d \\ge 11$ for the nearest-neighbour model and in dimensions $d>6$ for spread-out models. For $\\mathbb{Z}^d$, we employ a wide range of techniques and previous results to prove that there exist positive constants $c$ and $C$ such that the slightly subcritical two-point function and one-arm probabilities satisfy \\[ \\mathbb{P}_{p_c-\\varepsilon}(0 \\leftrightarrow x) \\leq \\frac{C}{\\|x\\|^{d-2}} e^{-c\\varepsilon^{1/2} \\|x\\|} \\quad \\text{ and } \\quad \\frac{c}{r^{2}} e^{-C \\varepsilon^{1/2}r} \\leq \\mathbb{P}_{p_c-\\varepsilon}\\Bigl(0 \\leftrightarrow \\partial [-r,r]^d \\Bigr) \\leq \\frac{C}{r^2} e^{-c \\varepsilon^{1/2}r}. \\] Using this, we prove that throughout the critical window the torus two-point function has a \"plateau,\" meaning that it decays for small $x$ as $\\|x\\|^{-(d-2)}$ but for large $x$ is essentially constant and of order $V^{-2/3}$ where $V$ is the volume of the torus. The plateau for the two-point function leads immediately to a proof of the torus triangle condition, which is known to have many implications for the critical behaviour on the torus, and also leads to a proof that the critical values on the torus and on $\\mathbb{Z}^d$ are separated by a multiple of $V^{-1/3}$. The torus triangle condition and the size of the separation of critical points have been proved previously, but our proofs are different and are direct consequences of the bound on the $\\mathbb{Z}^d$ two-point function. In particular, we use results derived from the lace expansion on $\\mathbb{Z}^d$, but in contrast to previous work on high-dimensional torus percolation we do not need or use a separate torus lace expansion.",
 						in_collaboration_with: "Tom Hutchcroft, G. Slade",
 						url: "https://arxiv.org/abs/2107.12971",
-						published_in: "A Completer"
+						published_in: "A Completer",
+						arxiv_code: "arXiv:2107.12971"
 					},
 					{
 						title: "Asymptotic behaviour of the lattice Green function",
 						description: "The lattice Green function, i.e., the resolvent of the discrete Laplace operator, is fundamental in probability theory and mathematical physics. We derive its long-distance behaviour via a detailed analysis of an integral representation involving modified Bessel functions. Our emphasis is on the decay of the massive lattice Green function in the vicinity of the massless (critical) case, and the recovery of Euclidean isotropy in the massless limit. This provides a prototype for the expected but unproven long-distance behaviour of near-critical two-point functions in statistical mechanical models such as percolation, the Ising model, and the self-avoiding walk above their upper critical dimensions.",
 						in_collaboration_with: "G. Slade",
 						url: "https://arxiv.org/abs/2101.04717",
-						published_in: "A Completer"
+						published_in: "A Completer",
+						arxiv_code: "arXiv:2101.04717"
 					}
 				],
 			}
@@ -162,6 +166,7 @@
 		},
 		template: `
 		<div class="one_paper">
+			<div class="arxiv_code" >{{paper.arxiv_code}}</div>
 			<div class="paper_title" >{{paper.title}}</div>
 			<div class="paper_description" v-html="paper.description" ></div>
 			<div v-if="paper.in_collaboration_with != ''" class="paper_collaboration" v-html="collaboration_img_html + '<span>Joint work with : <b>' + paper.in_collaboration_with + '</b></span>'">
@@ -185,12 +190,13 @@
 		data() {
 			return {
 				probability: 0.5,
+				refresh_frequency: 3000 //ms
 			}
 		},
 		template: `
 		<div id="percolation_animation_container">
 		<div id="percolation_animation"></div>
-		<div>p = <input type="number" max="1" min="0" step="0.05" v-model="probability"></div>
+		<div style="font-size: 1.5rem; display: flex; align-items: center;"><div>$p =$ </div><input type="number" max="1" min="0" step="0.05" v-model="probability"></div>
 		</div>
 		`,
 		watch: {
@@ -202,11 +208,10 @@
 		},
 		methods: {
 			refresh_percolation: function() {
-				const width = 350
+				const width = Math.min(window.innerHeight,window.innerWidth) * 0.35
 				const height = width
 				const nb_square = 30
-				const p = 0.5
-				const stroke_width = 3
+				const stroke_width = 2
 				const square_size = (width - stroke_width * 2) / nb_square
 				const stroke_linecap = "round" // square, round, butt
 				document.getElementById('percolation_animation').innerHTML = '<svg id="svgTest" class="svg" width="' + width + '" height="' + height + '"></svg>'
@@ -233,7 +238,7 @@
 					// 	await new Promise(r => setTimeout(r, 60));
 					// }
 
-				}.bind(this), 3000);
+				}.bind(this), this.refresh_frequency);
 			}
 		}
 	})
