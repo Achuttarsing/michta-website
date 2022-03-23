@@ -32,7 +32,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 	<!-- custom style -->
-	<link rel="stylesheet" href="css/style.css">
+	<link id="style_dynamic" rel="stylesheet" href="css/style.css">
+	
+	<script>
+		const ismobile = (window.innerHeight > window.innerWidth)
+		if(ismobile)
+			document.getElementById("style_dynamic").href = "css/style_mobile.css"
+		else
+			document.getElementById("style_dynamic").href = "css/style.css"
+	</script>
 
 
 
@@ -43,7 +51,7 @@
 	<div id="app">
 		<div id="side_menu">
 			<div id="name_title">EMMANUEL<br />MICHTA</div>
-			<div>I am a second year PhD student in the probability group of the University of British Columbia. My supervisor is Pr. Gordon Slade.</div>
+			<div id="side_description">I am a second year PhD student in the probability group of the University of British Columbia. My supervisor is Pr. Gordon Slade.</div>
 			<div id="category_selector">
 				<div class="section_choice" @click="goto('contact_section')">Contact</div>
 				<div class="section_choice" @click="goto('interests_section')">Research interests</div>
@@ -84,11 +92,11 @@
 			<div class="section_title">Background</div>
 			<div id="background_section_container">
 				<div id="school_imgs">
-					<img src="assets/isae_logo.png" />
-					<img src="assets/university-of-cambridge-logo-3.png" />
 					<img src="assets/ubc_logo.jpg" />
+					<img src="assets/university-of-cambridge-logo-3.png" />
+					<img src="assets/isae_logo.png" />
 				</div>
-				<div class="narration_style">I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Roland Bauerschmidt and Florian Simatos respectively.</div>
+				<div class="narration_style">I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Pr. Roland Bauerschmidt and Pr. Florian Simatos respectively.</div>
 			</div>
 		</section>
 
@@ -212,7 +220,12 @@
 		},
 		methods: {
 			refresh_percolation: function() {
-				const width = Math.min(window.innerHeight, window.innerWidth) * 0.35
+				const ismobile = (window.innerHeight > window.innerWidth)
+				let width
+				if (ismobile)
+					width = window.innerHeight * 0.35
+				else
+					width = Math.min(window.innerHeight, window.innerWidth) * 0.35
 				const height = width
 				//const nb_square = 30
 				const stroke_width = 2
@@ -236,15 +249,11 @@
 			},
 			todo: function() {
 				this.intervalid1 = setInterval(async function() {
-					console.log("isInViewport")
+					//console.log("isInViewport")
 					//console.log(isInViewport(document.getElementById('svgTest')))
 					if (isInViewport(document.getElementById('svgTest'))) {
 						this.refresh_percolation()
 					}
-					// for (const i of Array(15).keys()) {
-					// 	this.refresh_percolation()
-					// 	await new Promise(r => setTimeout(r, 60));
-					// }
 
 				}.bind(this), this.refresh_frequency);
 			}
@@ -258,7 +267,7 @@
 <script>
 	function isInViewport(element) {
 		const rect = element.getBoundingClientRect();
-		console.log(rect.top, rect.bottom, window.innerHeight)
+		//console.log(rect.top, rect.bottom, window.innerHeight)
 		return (
 			rect.top >= 0 &&
 			rect.left >= 0 &&
@@ -266,6 +275,15 @@
 			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 		);
 	}
+	
+	window.addEventListener('resize', function() {
+		console.log("resize")
+		const ismobile = (window.innerHeight > window.innerWidth)
+		if(ismobile)
+			document.getElementById("style_dynamic").href = "css/style_mobile.css"
+		else
+			document.getElementById("style_dynamic").href = "css/style.css"
+	})
 
 	document.addEventListener("DOMContentLoaded", async function(event) {
 
