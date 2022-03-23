@@ -190,13 +190,17 @@
 		data() {
 			return {
 				probability: 0.5,
-				refresh_frequency: 3000 //ms
+				refresh_frequency: 3000, //ms
+				nb_squares: 30
 			}
 		},
 		template: `
 		<div id="percolation_animation_container">
 		<div id="percolation_animation"></div>
-		<div style="font-size: 1.5rem; display: flex; align-items: center;"><div>$p =$ </div><input type="number" max="1" min="0" step="0.05" v-model="probability"></div>
+		<div style="font-size: 1.5rem; display: flex; align-items: center;">
+			<div>$p =$ </div><input type="number" max="1" min="0" step="0.05" v-model="probability">
+			<div>$n =$ </div><input type="number" max="100" min="2" step="5" v-model="nb_squares">
+		</div>
 		</div>
 		`,
 		watch: {
@@ -210,15 +214,15 @@
 			refresh_percolation: function() {
 				const width = Math.min(window.innerHeight,window.innerWidth) * 0.35
 				const height = width
-				const nb_square = 30
+				//const nb_square = 30
 				const stroke_width = 2
-				const square_size = (width - stroke_width * 2) / nb_square
+				const square_size = (width - stroke_width * 2) / this.nb_squares
 				const stroke_linecap = "round" // square, round, butt
 				document.getElementById('percolation_animation').innerHTML = '<svg id="svgTest" class="svg" width="' + width + '" height="' + height + '"></svg>'
 				// method to be executed;
 				let svg_content = ""
-				for (const x of Array(nb_square).keys()) {
-					for (const y of Array(nb_square).keys()) {
+				for (const x of Array(this.nb_squares).keys()) {
+					for (const y of Array(this.nb_squares).keys()) {
 						if (Math.random() < this.probability)
 							svg_content += '<line x1="' + String(stroke_width + square_size * x) + '" y1="' + String(stroke_width + square_size * y) + '" x2="' + String(stroke_width + square_size * (x + 1)) + '" y2="' + String(stroke_width + square_size * y) + '" stroke="black" stroke-width="' + String(stroke_width) + '" stroke-linecap="' + stroke_linecap + '" />'
 						if (Math.random() < this.probability)
