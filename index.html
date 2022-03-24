@@ -2,20 +2,19 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="icon" type="image/png" href="src/img/icon/search_icon.png" />
 
 	<title>Emmanuel Michta</title>
 
 	<!-- libs -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
 	<!-- VUE -->
 	<script src="https://unpkg.com/vue@next"></script>
@@ -23,40 +22,45 @@
 	<!-- MATHSJAX -->
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
-	tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
-	"HTML-CSS": {
-	  linebreaks: { automatic: true, width: "container" }          
-	}              
-	});
+	  tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+	  "HTML-CSS": {
+		linebreaks: { automatic: true, width: "container" }
+	  }
+	  });
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 	<!-- custom style -->
-	<link id="style_dynamic" rel="stylesheet" href="css/style.css">
-	
+	<link id="style_dynamic" rel="stylesheet" href="css/style.css" />
 	<script>
-		const ismobile = (window.innerHeight > window.innerWidth)
-		if(ismobile)
-			document.getElementById("style_dynamic").href = "css/style_mobile.css"
-		else
-			document.getElementById("style_dynamic").href = "css/style.css"
+		const ismobile = window.innerHeight > window.innerWidth;
+		if (ismobile)
+			document.getElementById("style_dynamic").href = "css/style_mobile.css";
+		else document.getElementById("style_dynamic").href = "css/style.css";
 	</script>
-
-
-
-
 </head>
 
 <body>
 	<div id="app">
 		<div id="side_menu">
 			<div id="name_title">EMMANUEL<br />MICHTA</div>
-			<div id="side_description">I am a second year PhD student in the probability group of the University of British Columbia. My supervisor is Pr. Gordon Slade.</div>
+			<div id="side_description">
+				I am a second year PhD student in the probability group of the
+				University of British Columbia. My supervisor is Pr. Gordon Slade.
+			</div>
 			<div id="category_selector">
-				<div class="section_choice" @click="goto('contact_section')">Contact</div>
-				<div class="section_choice" @click="goto('interests_section')">Research interests</div>
-				<div class="section_choice" @click="goto('publications_section')">Publications</div>
-				<div class="section_choice" @click="goto('background_section')">Background</div>
+				<div class="section_choice" @click="goto('contact_section')">
+					Contact
+				</div>
+				<div class="section_choice" @click="goto('interests_section')">
+					Research interests
+				</div>
+				<div class="section_choice" @click="goto('publications_section')">
+					Publications
+				</div>
+				<div class="section_choice" @click="goto('background_section')">
+					Background
+				</div>
 			</div>
 		</div>
 
@@ -67,7 +71,11 @@
 					<img id="profile_pic" src="assets/pp.jpg" />
 					<div class="legend">me (on the right)</div>
 				</div>
-				<div class="narration_style"><b>email :</b> michta{at}math.ubc.ca <br /> <b>office :</b> AUDX133 <br /> <b>academic address :</b> 1984 Mathematics Rd, Vancouver, BC V6T 1Z2</div>
+				<div class="narration_style">
+					<b>email :</b> michta{at}math.ubc.ca <br />
+					<b>office :</b> AUDX133 <br />
+					<b>academic address :</b> Department of Mathematics, University of British Columbia, 1984 Mathematics Rd, Vancouver, BC V6T 1Z2.
+				</div>
 				<!-- <div id="map" style="height: 100px; width: 100px;"></div> -->
 			</div>
 		</section>
@@ -77,14 +85,18 @@
 			<div id="interests_section_content">
 				<!-- 			<div id="percolation_animation"></div> -->
 				<percolation></percolation>
-				<div id="interests_section_content_text" class="narration_style"> I am interested in models from statistical physics such as percolation, self-avoiding walks, spin systems and their scaling limits especially in high-dimensions.</div>
+				<div id="interests_section_content_text" class="narration_style">
+					I am interested in models from statistical physics such as
+					percolation, self-avoiding walks, spin systems and their scaling
+					limits especially in high-dimensions.
+				</div>
 			</div>
 		</section>
 
 		<section id="publications_section">
 			<div class="section_title">Publications</div>
 			<div id="publications_container">
-				<paper v-for="item in publications" :paper=item></paper>
+				<paper v-for="item in publications" :paper="item"></paper>
 			</div>
 		</section>
 
@@ -92,25 +104,30 @@
 			<div class="section_title">Background</div>
 			<div id="background_section_container">
 				<div id="school_imgs">
-					<img src="assets/ubc_logo.jpg" />
-					<img src="assets/university-of-cambridge-logo-3.png" />
-					<img src="assets/isae_logo.png" />
+					<a href="https://www.math.ubc.ca/home" target="_blank"> <img src="assets/ubc_logo.jpg"> </a>
+					<!-- <img src="assets/ubc_logo.jpg" /> -->
+					<a href="https://www.maths.cam.ac.uk/" target="_blank"> <img src="assets/university-of-cambridge-logo-3.png"> </a>
+					<!-- <img src="assets/university-of-cambridge-logo-3.png" /> -->
+					<a href="https://www.isae-supaero.fr/en/" target="_blank"> <img src="assets/isae_logo.png"> </a>
 				</div>
-				<div class="narration_style">I have obtained master's degrees in maths from Cambridge (part III) and in aerospace engineering from ISAE-Supaero where I was advised by Pr. Roland Bauerschmidt and Pr. Florian Simatos respectively.</div>
+				<div class="narration_style">
+					Before coming to UBC I obtained master's degrees in maths from Cambridge (part III)
+					and in aerospace engineering from ISAE-Supaero where I was advised
+					by Pr. Roland Bauerschmidt and Pr. Florian Simatos respectively.
+				</div>
 			</div>
 		</section>
 
-
-		<footer>App icon by <a href="https://icons8.com" target="_blank" rel="noopener noreferrer">icons8</a></footer>
-
+		<footer>
+			App icon by
+			<a href="https://icons8.com" target="_blank" rel="noopener noreferrer">icons8</a>
+		</footer>
 	</div>
-
-
-
-
 </body>
 
 <script>
+	Tom_Hutchcroft = "http://www.its.caltech.edu/~thutch/"
+	Gordon_Slade = "https://personal.math.ubc.ca/~slade/"
 	let vm = Vue.createApp({
 		data() {
 			/* for publications.description remember to past the non-mathjax text + to escape all "\" characters*/
@@ -118,89 +135,110 @@
 				publications: [{
 						title: "The scaling limit of the weakly self-avoiding walk on a high-dimensional torus",
 						description: "We prove that the scaling limit of the weakly self-avoiding walk on a $d$-dimensional discrete torus is Brownian motion on the continuum torus if the length of the rescaled walk is $o(V^{1/2})$ where $V$ is the volume (number of points) of the torus and if $d>4$. We also prove that the diffusion constant of the resulting torus Brownian motion is the same as the diffusion constant of the scaling limit of the usual weakly self-avoiding walk on $\\mathbb{Z}^d$. This provides further manifestation of the fact that the weakly self-avoiding walk model on the torus does not feel that it is on the torus up until it reaches about $V^{1/2}$ steps which we believe is sharp.",
-						in_collaboration_with: "",
+						in_collaboration_with: [],
 						url: "https://arxiv.org/abs/2203.07695",
-						published_in: "A Completer",
-						arxiv_code: "arXiv:2203.07695"
+						published_in: "Preprint",
+						arxiv_code: "arXiv:2203.07695",
 					},
 					{
 						title: "Weakly self-avoiding walk on a high-dimensional torus",
 						description: "How long does a self-avoiding walk on a discrete $d$-dimensional torus have to be before it begins to behave differently from a self-avoiding walk on $\\mathbb{Z}^d$? We consider a version of this question for weakly self-avoiding walk on a torus in dimensions $d>4$. On $\\mathbb{Z}^d$ for $d>4$, the partition function for $n$-step weakly self-avoiding walk is known to be asymptotically purely exponential, of the form $A\\mu^n$, where $\\mu$ is the growth constant for weakly self-avoiding walk on $\\mathbb{Z}^d$. We prove the identical asymptotic behaviour $A\\mu^n$ on the torus (with the same $A$ and $\\mu$ as on $\\mathbb{Z}^d$) until $n$ reaches order $V^{1/2}$, where $V$ is the number of vertices in the torus. This shows that the walk must have length of order at least $V^{1/2}$ before it ``feels'' the torus in its leading asymptotics. Our results support the conjecture that the behaviour of the partition function does change once $n$ reaches $V^{1/2}$, and we relate this to a conjectural critical scaling window which separates the dilute phase $n \\ll V^{1/2}$ from the dense phase $n \\gg V^{1/2}$. To prove the conjecture and to establish the existence of the scaling window remains a challenging open problem. The proof uses a novel lace expansion analysis based on the \"plateau\" for the torus two-point function obtained in previous work.",
-						in_collaboration_with: "G. Slade",
+						in_collaboration_with: [{
+							name: "G. Slade",
+							url: "https://personal.math.ubc.ca/~slade/"
+						}],
 						url: "https://arxiv.org/abs/2107.14170",
-						published_in: "A Completer",
-						arxiv_code: "arXiv:2107.14170"
+						published_in: "Preprint",
+						arxiv_code: "arXiv:2107.14170",
 					},
 					{
 						title: "High-dimensional near-critical percolation and the torus plateau",
-						description: "We consider percolation on $\\mathbb{Z}^d$ and on the $d$-dimensional discrete torus, in dimensions $d \\ge 11$ for the nearest-neighbour model and in dimensions $d>6$ for spread-out models. For $\\mathbb{Z}^d$, we employ a wide range of techniques and previous results to prove that there exist positive constants $c$ and $C$ such that the slightly subcritical two-point function and one-arm probabilities satisfy \\[ \\mathbb{P}_{p_c-\\varepsilon}(0 \\leftrightarrow x) \\leq \\frac{C}{\\|x\\|^{d-2}} e^{-c\\varepsilon^{1/2} \\|x\\|} \\quad \\text{ and } \\quad \\frac{c}{r^{2}} e^{-C \\varepsilon^{1/2}r} \\leq \\mathbb{P}_{p_c-\\varepsilon}\\Bigl(0 \\leftrightarrow \\partial [-r,r]^d \\Bigr) \\leq \\frac{C}{r^2} e^{-c \\varepsilon^{1/2}r}. \\] Using this, we prove that throughout the critical window the torus two-point function has a \"plateau,\" meaning that it decays for small $x$ as $\\|x\\|^{-(d-2)}$ but for large $x$ is essentially constant and of order $V^{-2/3}$ where $V$ is the volume of the torus. The plateau for the two-point function leads immediately to a proof of the torus triangle condition, which is known to have many implications for the critical behaviour on the torus, and also leads to a proof that the critical values on the torus and on $\\mathbb{Z}^d$ are separated by a multiple of $V^{-1/3}$. The torus triangle condition and the size of the separation of critical points have been proved previously, but our proofs are different and are direct consequences of the bound on the $\\mathbb{Z}^d$ two-point function. In particular, we use results derived from the lace expansion on $\\mathbb{Z}^d$, but in contrast to previous work on high-dimensional torus percolation we do not need or use a separate torus lace expansion.",
-						in_collaboration_with: "Tom Hutchcroft, G. Slade",
+						description: 'We consider percolation on $\\mathbb{Z}^d$ and on the $d$-dimensional discrete torus, in dimensions $d \\ge 11$ for the nearest-neighbour model and in dimensions $d>6$ for spread-out models. For $\\mathbb{Z}^d$, we employ a wide range of techniques and previous results to prove that there exist positive constants $c$ and $C$ such that the slightly subcritical two-point function and one-arm probabilities satisfy \\[ \\mathbb{P}_{p_c-\\varepsilon}(0 \\leftrightarrow x) \\leq \\frac{C}{\\|x\\|^{d-2}} e^{-c\\varepsilon^{1/2} \\|x\\|} \\quad \\text{ and } \\quad \\frac{c}{r^{2}} e^{-C \\varepsilon^{1/2}r} \\leq \\mathbb{P}_{p_c-\\varepsilon}\\Bigl(0 \\leftrightarrow \\partial [-r,r]^d \\Bigr) \\leq \\frac{C}{r^2} e^{-c \\varepsilon^{1/2}r}. \\] Using this, we prove that throughout the critical window the torus two-point function has a "plateau," meaning that it decays for small $x$ as $\\|x\\|^{-(d-2)}$ but for large $x$ is essentially constant and of order $V^{-2/3}$ where $V$ is the volume of the torus. The plateau for the two-point function leads immediately to a proof of the torus triangle condition, which is known to have many implications for the critical behaviour on the torus, and also leads to a proof that the critical values on the torus and on $\\mathbb{Z}^d$ are separated by a multiple of $V^{-1/3}$. The torus triangle condition and the size of the separation of critical points have been proved previously, but our proofs are different and are direct consequences of the bound on the $\\mathbb{Z}^d$ two-point function. In particular, we use results derived from the lace expansion on $\\mathbb{Z}^d$, but in contrast to previous work on high-dimensional torus percolation we do not need or use a separate torus lace expansion.',
+						in_collaboration_with: [{
+								name: "T. Hutchcroft",
+								url: "http://www.its.caltech.edu/~thutch/"
+							},
+							{
+								name: "G. Slade",
+								url: "https://personal.math.ubc.ca/~slade/"
+							}
+						],
 						url: "https://arxiv.org/abs/2107.12971",
-						published_in: "A Completer",
-						arxiv_code: "arXiv:2107.12971"
+						published_in: "Preprint",
+						arxiv_code: "arXiv:2107.12971",
 					},
 					{
 						title: "Asymptotic behaviour of the lattice Green function",
 						description: "The lattice Green function, i.e., the resolvent of the discrete Laplace operator, is fundamental in probability theory and mathematical physics. We derive its long-distance behaviour via a detailed analysis of an integral representation involving modified Bessel functions. Our emphasis is on the decay of the massive lattice Green function in the vicinity of the massless (critical) case, and the recovery of Euclidean isotropy in the massless limit. This provides a prototype for the expected but unproven long-distance behaviour of near-critical two-point functions in statistical mechanical models such as percolation, the Ising model, and the self-avoiding walk above their upper critical dimensions.",
-						in_collaboration_with: "G. Slade",
+						in_collaboration_with: [{
+							name: "G. Slade",
+							url: "https://personal.math.ubc.ca/~slade/"
+						}],
 						url: "https://arxiv.org/abs/2101.04717",
-						published_in: "A Completer",
-						arxiv_code: "arXiv:2101.04717"
-					}
+						published_in: "Preprint",
+						arxiv_code: "arXiv:2101.04717",
+					},
 				],
-			}
+			};
 		},
 		methods: {
 			goto(element_id) {
-				var element = document.getElementById(element_id)
+				var element = document.getElementById(element_id);
 				var top = element.offsetTop;
 				window.scrollTo({
 					top: top,
-					behavior: 'smooth'
-				})
-			}
+					behavior: "smooth",
+				});
+			},
 		},
-		watch: {
+		watch: {},
+	});
 
-		}
-	})
-
-	vm.component('paper', {
-		props: ['paper'],
+	vm.component("paper", {
+		props: ["paper"],
 		data() {
 			return {
-				collaboration_img_html: '<img class="collaboration_gif" src="assets/poignee-de-main.gif" />'
-			}
+				collaboration_img_html: '<img class="collaboration_gif" src="assets/poignee-de-main.gif" />',
+			};
 		},
 		template: `
 		<div class="one_paper">
-			<div class="arxiv_code" >{{paper.arxiv_code}}</div>
-			<div class="paper_title" >{{paper.title}}</div>
+			<div class="arxiv_code">{{paper.arxiv_code}}</div>
+			<div class="paper_title">{{paper.title}}</div>
+	  <div class="published_in">{{paper.published_in}}</div>
 			<div class="paper_description" v-html="paper.description" ></div>
-			<div v-if="paper.in_collaboration_with != ''" class="paper_collaboration" v-html="collaboration_img_html + '<span>Joint work with : <b>' + paper.in_collaboration_with + '</b></span>'">
-			</div>
+	  
+	  <div v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
+	  
 			<div class="paper_controls">
 				<a :href="paper.url" target="_blank" rel="noopener noreferrer"><div class="paper_read_button">Read</div></a>
 				<div class="paper_cite_button">Cite</div>
 			</div>
 			
 		</div>`,
+		methods: {
+			nameWithComma(index) {
+				if (index !== this.paper.in_collaboration_with.length - 1) {
+					return `${this.paper.in_collaboration_with[index].name},`;
+				} else {
+					return this.paper.in_collaboration_with[index].name;
+				}
+			}
+		},
 		mounted: function() {
 			//window.MathJax.typeset()
 			MathJax.Hub.Typeset();
 		},
-		watch: {
+		watch: {},
+	});
 
-		}
-	})
-
-	vm.component('percolation', {
+	vm.component("percolation", {
 		data() {
 			return {
 				probability: 0.5,
 				refresh_frequency: 1000, //ms
-				nb_squares: 30
-			}
+				nb_squares: 30,
+			};
 		},
 		template: `
 		<div id="percolation_animation_container">
@@ -211,58 +249,84 @@
 		</div>
 		</div>
 		`,
-		watch: {
-
-		},
+		watch: {},
 		mounted: function() {
-			this.refresh_percolation()
-			this.todo()
+			this.refresh_percolation();
+			this.todo();
 		},
 		methods: {
 			refresh_percolation: function() {
-				const ismobile = (window.innerHeight > window.innerWidth)
-				let width
-				if (ismobile)
-					width = window.innerHeight * 0.35
-				else
-					width = Math.min(window.innerHeight, window.innerWidth) * 0.35
-				const height = width
+				const ismobile = window.innerHeight > window.innerWidth;
+				let width;
+				if (ismobile) width = window.innerHeight * 0.35;
+				else width = Math.min(window.innerHeight, window.innerWidth) * 0.35;
+				const height = width;
 				//const nb_square = 30
-				const stroke_width = 2
-				const square_size = (width - stroke_width * 2) / this.nb_squares
-				const stroke_linecap = "round" // square, round, butt
-				document.getElementById('percolation_animation').innerHTML = '<svg id="svgTest" class="svg" width="' + width + '" height="' + height + '"></svg>'
+				const stroke_width = 2;
+				const square_size = (width - stroke_width * 2) / this.nb_squares;
+				const stroke_linecap = "round"; // square, round, butt
+				document.getElementById("percolation_animation").innerHTML =
+					'<svg id="svgTest" class="svg" width="' +
+					width +
+					'" height="' +
+					height +
+					'"></svg>';
 				// method to be executed;
-				let svg_content = ""
+				let svg_content = "";
 				for (const x of Array(this.nb_squares).keys()) {
 					for (const y of Array(this.nb_squares).keys()) {
 						if (Math.random() < this.probability)
-							svg_content += '<line x1="' + String(stroke_width + square_size * x) + '" y1="' + String(stroke_width + square_size * y) + '" x2="' + String(stroke_width + square_size * (x + 1)) + '" y2="' + String(stroke_width + square_size * y) + '" stroke="black" stroke-width="' + String(stroke_width) + '" stroke-linecap="' + stroke_linecap + '" />'
+							svg_content +=
+							'<line x1="' +
+							String(stroke_width + square_size * x) +
+							'" y1="' +
+							String(stroke_width + square_size * y) +
+							'" x2="' +
+							String(stroke_width + square_size * (x + 1)) +
+							'" y2="' +
+							String(stroke_width + square_size * y) +
+							'" stroke="black" stroke-width="' +
+							String(stroke_width) +
+							'" stroke-linecap="' +
+							stroke_linecap +
+							'" />';
 						if (Math.random() < this.probability)
-							svg_content += '<line x1="' + String(stroke_width + square_size * x) + '" y1="' + String(stroke_width + square_size * y) + '" x2="' + String(stroke_width + square_size * x) + '" y2="' + String(stroke_width + square_size * (y + 1)) + '" stroke="black" stroke-width="' + String(stroke_width) + '" stroke-linecap="' + stroke_linecap + '" />'
+							svg_content +=
+							'<line x1="' +
+							String(stroke_width + square_size * x) +
+							'" y1="' +
+							String(stroke_width + square_size * y) +
+							'" x2="' +
+							String(stroke_width + square_size * x) +
+							'" y2="' +
+							String(stroke_width + square_size * (y + 1)) +
+							'" stroke="black" stroke-width="' +
+							String(stroke_width) +
+							'" stroke-linecap="' +
+							stroke_linecap +
+							'" />';
 					}
 				}
 
-
-
-				document.getElementById('svgTest').innerHTML = svg_content
+				document.getElementById("svgTest").innerHTML = svg_content;
 			},
 			todo: function() {
-				this.intervalid1 = setInterval(async function() {
-					//console.log("isInViewport")
-					//console.log(isInViewport(document.getElementById('svgTest')))
-					if (isInViewport(document.getElementById('svgTest'))) {
-						this.refresh_percolation()
-					}
+				this.intervalid1 = setInterval(
+					async function() {
+							//console.log("isInViewport")
+							//console.log(isInViewport(document.getElementById('svgTest')))
+							if (isInViewport(document.getElementById("svgTest"))) {
+								this.refresh_percolation();
+							}
+						}.bind(this),
+						this.refresh_frequency
+				);
+			},
+		},
+	});
 
-				}.bind(this), this.refresh_frequency);
-			}
-		}
-	})
-
-	vm = vm.mount('#app');
+	vm = vm.mount("#app");
 </script>
-
 
 <script>
 	function isInViewport(element) {
@@ -271,27 +335,24 @@
 		return (
 			rect.top >= 0 &&
 			rect.left >= 0 &&
-			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			rect.bottom <=
+			(window.innerHeight || document.documentElement.clientHeight) &&
+			rect.right <=
+			(window.innerWidth || document.documentElement.clientWidth)
 		);
 	}
-	
-	window.addEventListener('resize', function() {
-		console.log("resize")
-		const ismobile = (window.innerHeight > window.innerWidth)
-		if(ismobile)
-			document.getElementById("style_dynamic").href = "css/style_mobile.css"
-		else
-			document.getElementById("style_dynamic").href = "css/style.css"
-	})
+
+	window.addEventListener("resize", function() {
+		console.log("resize");
+		const ismobile = window.innerHeight > window.innerWidth;
+		if (ismobile)
+			document.getElementById("style_dynamic").href = "css/style_mobile.css";
+		else document.getElementById("style_dynamic").href = "css/style.css";
+	});
 
 	document.addEventListener("DOMContentLoaded", async function(event) {
-
-
-
 		MathJax.Hub.Typeset();
-
-	})
+	});
 </script>
 
 </html>

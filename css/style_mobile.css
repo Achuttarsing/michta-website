@@ -301,6 +301,14 @@ a:hover, a:visited, a:link, a:active
 	font-size: 1.5rem;
 }
 
+.wordlink {
+	color: black;
+}
+
+.wordlink:hover {
+	text-decoration: underline;
+}
+
 footer {
 	padding: 3px;
 	font-family: 'Roboto';
