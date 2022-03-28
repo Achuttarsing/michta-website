@@ -162,6 +162,13 @@ a:hover, a:visited, a:link, a:active
 	margin-left: 0.6rem;
 }
 
+.paper_cite_button:hover{
+	border: black dashed 1px;
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
 .paper_title {
 	font-family: 'Roboto';
 	font-style: normal;
@@ -171,6 +178,15 @@ a:hover, a:visited, a:link, a:active
 
 .paper_description {
 	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	max-height: 15rem;
+	overflow-y: scroll;
+}
+
+.paper_bibtex {
+	font-family: 'IBM Plex Mono';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1rem;
@@ -216,6 +232,20 @@ a:hover, a:visited, a:link, a:active
 	justify-content: space-around;
 	gap: 10px;
 }
+
+#percolation_settings {
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.one_parameter {
+	display: flex;
+	align-items: center;
+}
+
 
 .interests_section_content_text {
 	

@@ -20,11 +20,11 @@ body {
 
 
 #side_menu {
-/* 	border: solid red 1px; */
+	/* 	border: solid red 1px; */
 	box-sizing: border-box;
 	/* position: fixed; */
 	/* left: 0; */
-	height: 100vh; 
+	height: 100vh;
 	/* width: 20vw;
 	/* padding-top: 15vh; */
 	/* padding-right: 2vw; */
@@ -32,13 +32,13 @@ body {
 	padding: 3rem;
 	display: flex;
 	flex-direction: column;
-	align-items: stretch;
-	justify-content: space-around;
-	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: 5rem;
 }
 
 #side_menu_content {
-/* 	border: solid green 1px; */
+	/* 	border: solid green 1px; */
 }
 
 #name_title {
@@ -47,7 +47,7 @@ body {
 	font-weight: 700;
 	font-size: 4rem;
 	line-height: 4rem;
-	
+	width: 100%;
 }
 
 #side_description {
@@ -67,8 +67,7 @@ body {
 	text-align: center;
 }
 
-#category_selector {
-}
+#category_selector {}
 
 .section_choice {
 	text-decoration: none
@@ -84,13 +83,13 @@ body {
 section {
 	--padding: 1rem;
 
-/* 	border: solid green 4px; */
+	/* 	border: solid green 4px; */
 	box-sizing: border-box;
 	width: 100vw;
-/* 	height: 100vh; */
+	/* 	height: 100vh; */
 	padding: var(--padding);
 	/* padding-left: calc(20vw + var(--padding)); */
-	
+
 	display: flex;
 	flex-direction: column;
 }
@@ -158,20 +157,29 @@ section {
 	margin-right: 0.6rem;
 }
 
-.paper_read_button:hover{
+.paper_read_button:hover {
 	border: black solid 1px;
 	background-color: white;
 	color: black;
 }
 
-a:hover, a:visited, a:link, a:active
-{
+a:hover,
+a:visited,
+a:link,
+a:active {
 	text-decoration: none;
 }
 
 .paper_cite_button {
 	border: black solid 1px;
 	margin-left: 0.6rem;
+}
+
+.paper_cite_button:hover {
+	border: black dashed 1px;
+	background-color: white;
+	color: black;
+	cursor: pointer;
 }
 
 .paper_title {
@@ -188,6 +196,17 @@ a:hover, a:visited, a:link, a:active
 	font-size: 1rem;
 	max-height: 15rem;
 	overflow-y: scroll;
+}
+
+.paper_bibtex {
+	font-family: 'IBM Plex Mono';
+	color: white;
+	background-color: black;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	max-height: 15rem;
+	overflow: scroll;
 }
 
 .paper_collaboration {
@@ -211,10 +230,10 @@ a:hover, a:visited, a:link, a:active
 
 #interests_section_content {
 	flex-grow: 1;
-/* 	border: solid red 1px; */
+	/* 	border: solid red 1px; */
 	box-sizing: border-box;
 	padding: 5rem;
-	
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -222,9 +241,7 @@ a:hover, a:visited, a:link, a:active
 	gap: 4rem;
 }
 
-#interests_section_content div{
-	
-}
+#interests_section_content div {}
 
 #percolation_animation_container {
 	display: flex;
@@ -234,14 +251,25 @@ a:hover, a:visited, a:link, a:active
 	gap: 10px;
 }
 
-.interests_section_content_text {
-	
+#percolation_settings {
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-evenly;
 }
+
+.one_parameter {
+	display: flex;
+	align-items: center;
+}
+
+.interests_section_content_text {}
 
 /* background section */
 
-#background_section_container{
-/* 	border: solid red 1px; */
+#background_section_container {
+	/* 	border: solid red 1px; */
 	box-sizing: border-box;
 	padding: 5rem;
 	display: flex;
@@ -251,14 +279,14 @@ a:hover, a:visited, a:link, a:active
 }
 
 #school_imgs {
-/* 	border: solid green 1px; */
+	/* 	border: solid green 1px; */
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	gap: 3rem;
 }
 
-#background_section_container img{
+#background_section_container img {
 	height: 7rem;
 }
 
@@ -268,7 +296,7 @@ a:hover, a:visited, a:link, a:active
 	box-sizing: border-box;
 	padding: 5rem;
 	flex-grow: 1;
-/* 	border: solid blue 1px; */
+	/* 	border: solid blue 1px; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
