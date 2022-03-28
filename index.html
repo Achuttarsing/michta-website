@@ -45,8 +45,8 @@
 		<div id="side_menu">
 			<div id="name_title">EMMANUEL<br />MICHTA</div>
 			<div id="side_description">
-				I am a second year PhD student in the probability group of the
-				University of British Columbia. My supervisor is Pr. Gordon Slade.
+				I am a <b>second year PhD student</b> in the probability group of the
+				<b>University of British Columbia</b>. My supervisor is <b>Pr. Gordon Slade</b>.
 			</div>
 			<div id="category_selector">
 				<div class="section_choice" @click="goto('contact_section')">
@@ -119,8 +119,9 @@
 		</section>
 
 		<footer>
-			App icon by
-			<a href="https://icons8.com" target="_blank" rel="noopener noreferrer">icons8</a>
+			<span style="color: rgb(91, 91, 91)">Thanks to <a style="color: color(srgb 0.162 0.162 0.162); text-decoration: underline;" href="https://soundcloud.com/achutta" target="_blank" rel="noopener noreferrer">Adrien Chuttarsing</a> for helping with the design of the webpage. </span><br/>
+			<span style="color: color(srgb 0.673 0.673 0.673); font-size: 8px;">app icon by</span>
+			<a href="https://icons8.com" target="_blank" rel="noopener noreferrer" style="color: color(srgb 0.673 0.673 0.673); font-size: 8px; text-decoration: underline;"> icons8</a>
 		</footer>
 	</div>
 </body>
@@ -258,7 +259,7 @@
 			refresh_percolation: function() {
 				const ismobile = window.innerHeight > window.innerWidth;
 				let width;
-				if (ismobile) width = window.innerHeight * 0.35;
+				if (ismobile) width = window.innerWidth * 0.8;
 				else width = Math.min(window.innerHeight, window.innerWidth) * 0.35;
 				const height = width;
 				//const nb_square = 30
