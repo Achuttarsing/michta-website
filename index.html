@@ -275,11 +275,11 @@
 			<div class="arxiv_code">{{paper.arxiv_code}}</div>
 			<div class="paper_title">{{paper.title}}</div>
 	    <div class="published_in" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]">{{paper.published_in}}</div>
-		<div class="published_in" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]"><b>BIBTEX :</b></div>
+		<div class="bibtex_title" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]">Bibtex Citation :</div>
 		<div class="paper_description" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]" v-html="paper.description" ></div>
 		<div class="paper_bibtex" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]" >{{paper.bibtex}}</div>
 	  
-	  <div v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
+	  <div :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]" v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
 	  
 			<div class="paper_controls">
 				<a :href="paper.url" target="_blank" rel="noopener noreferrer"><div class="paper_read_button">Read</div></a>
@@ -341,7 +341,7 @@
 				const ismobile = window.innerHeight > window.innerWidth;
 				let width;
 				if (ismobile) width = window.innerWidth * 0.75;
-				else width = Math.min(window.innerHeight, window.innerWidth) * 0.35;
+				else width = Math.min(window.innerHeight, window.innerWidth) * 0.4;
 				const height = width;
 				//const nb_square = 30
 				const stroke_width = 2;
