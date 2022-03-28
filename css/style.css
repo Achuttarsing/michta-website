@@ -187,11 +187,13 @@ a:hover, a:visited, a:link, a:active
 
 .paper_bibtex {
 	font-family: 'IBM Plex Mono';
+	color: white;
+	background-color: black;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1rem;
 	max-height: 15rem;
-	overflow-y: scroll;
+	overflow: scroll;
 }
 
 .paper_collaboration {

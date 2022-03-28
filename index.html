@@ -423,13 +423,20 @@
 			(window.innerWidth || document.documentElement.clientWidth)
 		);
 	}
+	
+	let current_format = ''
 
 	window.addEventListener("resize", function() {
 		console.log("resize");
 		const ismobile = window.innerHeight > window.innerWidth;
-		if (ismobile)
+		if (ismobile && current_format != 'mobile') {
 			document.getElementById("style_dynamic").href = "css/style_mobile.css";
-		else document.getElementById("style_dynamic").href = "css/style.css";
+			current_format = 'mobile'
+		}
+		else if (!ismobile && current_format != 'pc') {
+			document.getElementById("style_dynamic").href = "css/style.css";
+			current_format = 'pc'
+		}
 	});
 
 	document.addEventListener("DOMContentLoaded", async function(event) {
