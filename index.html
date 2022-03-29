@@ -121,7 +121,7 @@
 			</div>
 		</section>
 
-		<section id="talks_section">
+		<section id="talks_section"> 
 			<div class="section_title">Invited talks</div>
 			<talks :talks="talks"></talks>
 		</section>
@@ -259,7 +259,7 @@
 						subject: "High-dimensional near critical percolation and the torus plateau",
 						event: "UBC Probability Seminar 2021",
 						date: "2021-07-17",
-						video_link: "www.google.com",
+						video_link: "https://ubc.zoom.us/rec/play/R2DgF4Sn1QlYRf7oSp2frNo4lHdF134XJT2KKhECYXMYyx36i5A6_0ecsibVkzBZDDUyTWYneZ7JbTqY._1__OQLRgso0qd2T?continueMode=true",
 						mpd_video_link: ""
 					},
 					{
@@ -345,12 +345,29 @@
 			return {};
 		},
 		template: `
-		<div class="talk_list">
-			<div v-for="item in dated_talks">
-				<span>{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> : <span>{{item.event}}</span>
-			</div>	
+		<div id="talk_list">
+			<div class="talk_inter_title"><b>~~~ ALREADY DONE ~~~</b></div>
+			<div id="passed_talks">
+				<div v-for="item in passed_talks">
+					<span class="talk_date" style="text-decoration: line-through;">{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span><span class="talk_place"> @ {{item.event}}</span>
+				</div>
+			</div>
+			<div class="talk_inter_title"><b>~~~ TO GO ~~~</b></div>
+			<div id="future_talks">
+				<div v-for="item in future_talks">
+					<a @mouseover="show_add_cal" @mouseleave="hide_add_cal($event,item.date)" :href="'https://calendar.google.com/calendar/u/0/r/eventedit?text='+item.subject.replaceAll(' ','+')+'&dates='+item.date.replaceAll('-','') + '/' + item.date_plus_one.replaceAll('-','')+'&details='+('A conference about ' + item.subject +' conducted by E. Michta at '+item.event+'.').replaceAll(' ','+')+'&location='+item.event.replaceAll(' ','+')"><span class="talk_date">{{item.date}}</span></a> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="talk_place"> @ {{item.event}}</span><sup id="hour_decount" class="blink"> <b> day-{{item.day_to_go}}</b></sup>
+				</div>
+			</div>
 		</div>`,
 		methods: {
+			show_add_cal: function(event){
+				console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
+				event.currentTarget.querySelector(":scope .talk_date").innerText = 'ADD TO CALENDAR'
+			},
+			hide_add_cal: function(event, initial_text){
+				console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
+				event.currentTarget.querySelector(":scope .talk_date").innerText = initial_text
+			}
 
 		},
 		computed: {
@@ -383,7 +400,51 @@
 				
 				return sorted_talks
 
-			}
+			},
+			passed_talks: function() {
+				
+				sorted_talks = JSON.parse(JSON.stringify(this.talks))
+				
+				let today = new Date();
+				
+				sorted_talks.sort(function compare(a, b) {
+				  let dateA = new Date(a.date);
+				  let dateB = new Date(b.date);
+				  return dateA - dateB;
+				});
+				
+				return sorted_talks.filter(function (el) {
+				  return new Date(el.date) < today
+				});
+			},
+			future_talks: function() {
+				
+				sorted_talks = JSON.parse(JSON.stringify(this.talks))
+				
+				let today = new Date();
+				
+				sorted_talks.sort(function compare(a, b) {
+				  let dateA = new Date(a.date);
+				  let dateB = new Date(b.date);
+				  return dateA - dateB;
+				});
+				
+				sorted_talks = sorted_talks.filter(function (el) {
+				  return new Date(el.date) >= today
+				});
+				
+				for (let t of sorted_talks) {
+					t['day_to_go'] = Math.round((new Date(t.date)-today)/(1000*60*60*24));
+					let day_plus_one = new Date(t.date)
+					day_plus_one.setDate(day_plus_one.getDate() + 1)
+					let dd = String(day_plus_one.getDate()).padStart(2, '0');
+					let mm = String(day_plus_one.getMonth() + 1).padStart(2, '0'); //January is 0!
+					let yyyy = day_plus_one.getFullYear();
+					t['date_plus_one'] = yyyy + '-' + mm + '-' + dd;
+				}
+				
+				return sorted_talks
+			},
 		},
 		mounted: function() {
 			//window.MathJax.typeset()

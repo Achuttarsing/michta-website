@@ -301,6 +301,44 @@ a:hover, a:visited, a:link, a:active
 	height: 20rem;
 }
 
+/* Talk section */
+
+#talk_list{
+	margin: 2rem;
+	font-size: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.talk_inter_title {
+	font-size: 1.5rem;
+	margin-top: 0.5rem;
+}
+
+.talk_date {
+	background-color: rgb(71, 71, 71);
+	color: white;
+}
+
+.talk_place {
+}
+
+#hour_decount {
+	color: red;
+}
+
+.blink {
+  animation: blinker 1.5s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+	opacity: 0;
+  }
+}
+
 /* Utils */
 .legend {
 	font-family: 'Roboto';
