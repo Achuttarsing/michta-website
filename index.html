@@ -61,6 +61,9 @@
 				<div class="section_choice" @click="goto('background_section')">
 					Background
 				</div>
+				<div class="section_choice" @click="goto('talks_section')">
+					Invited talks
+				</div>
 			</div>
 		</div>
 
@@ -118,8 +121,13 @@
 			</div>
 		</section>
 
+		<section id="talks_section">
+			<div class="section_title">Invited talks</div>
+			<talks :talks="talks"></talks>
+		</section>
+
 		<footer>
-			<span style="color: rgb(91, 91, 91)">Thanks to <a class="wordlink" style=" font-weight: 300; color: color(srgb 0.162 0.162 0.162);" href="https://soundcloud.com/achutta" target="_blank" rel="noopener noreferrer">Adrien Chuttarsing</a> for helping with the design of the webpage. </span><br/>
+			<span style="color: rgb(91, 91, 91)">Thanks to <a class="wordlink" style=" font-weight: 300; color: color(srgb 0.162 0.162 0.162);" href="https://soundcloud.com/achutta" target="_blank" rel="noopener noreferrer">Adrien Chuttarsing</a> for helping with the design of the webpage. </span><br />
 			<span style="color: color(srgb 0.673 0.673 0.673); font-size: 8px;">app icon by</span>
 			<a href="https://icons8.com" target="_blank" rel="noopener noreferrer" style="color: color(srgb 0.673 0.673 0.673); font-size: 8px; text-decoration: underline;"> icons8</a>
 		</footer>
@@ -127,8 +135,7 @@
 </body>
 
 <script>
-	Tom_Hutchcroft = "http://www.its.caltech.edu/~thutch/"
-	Gordon_Slade = "https://personal.math.ubc.ca/~slade/"
+	
 	let vm = Vue.createApp({
 		data() {
 			/* for publications.description remember to past the non-mathjax text + to escape all "\" characters*/
@@ -248,6 +255,28 @@
 						}`
 					},
 				],
+				talks: [{
+						subject: "High-dimensional near critical percolation and the torus plateau",
+						event: "UBC Probability Seminar 2021",
+						date: "2021-07-17",
+						video_link: "www.google.com",
+						mpd_video_link: ""
+					},
+					{
+						subject: "The story of Torus",
+						event: "Pitchfork Conference Center 2021",
+						date: "2021-10-07",
+						video_link: "www.google.com",
+						mpd_video_link: ""
+					},
+					{
+						subject: "Probability to be a rockstar",
+						event: "Woodstock : The rebirth",
+						date: "2022-06-03",
+						video_link: "",
+						mpd_video_link: ""
+					},
+				]
 			};
 		},
 		methods: {
@@ -300,7 +329,60 @@
 				this.show_bibtex = !this.show_bibtex
 				console.log(event)
 				console.log(event)
+
+			}
+		},
+		mounted: function() {
+			//window.MathJax.typeset()
+			MathJax.Hub.Typeset();
+		},
+		watch: {},
+	});
+
+	vm.component("talks", {
+		props: ["talks"],
+		data() {
+			return {};
+		},
+		template: `
+		<div class="talk_list">
+			<div v-for="item in dated_talks">
+				<span>{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> : <span>{{item.event}}</span>
+			</div>	
+		</div>`,
+		methods: {
+
+		},
+		computed: {
+			dated_talks: function() {
 				
+				sorted_talks = JSON.parse(JSON.stringify(this.talks))
+				
+				let today = new Date();
+				let dd = String(today.getDate()).padStart(2, '0');
+				let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+				let yyyy = today.getFullYear();
+				
+				today = yyyy + '-' + mm + '-' + dd;
+				
+				sorted_talks.push(
+					{
+						subject: "NOW",
+						event: "",
+						date: today,
+						video_link: "",
+						mpd_video_link: ""
+					},
+				)
+				
+				sorted_talks.sort(function compare(a, b) {
+				  var dateA = new Date(a.date);
+				  var dateB = new Date(b.date);
+				  return dateA - dateB;
+				});
+				
+				return sorted_talks
+
 			}
 		},
 		mounted: function() {
@@ -423,7 +505,7 @@
 			(window.innerWidth || document.documentElement.clientWidth)
 		);
 	}
-	
+
 	let current_format = ''
 
 	window.addEventListener("resize", function() {
@@ -432,8 +514,7 @@
 		if (ismobile && current_format != 'mobile') {
 			document.getElementById("style_dynamic").href = "css/style_mobile.css";
 			current_format = 'mobile'
-		}
-		else if (!ismobile && current_format != 'pc') {
+		} else if (!ismobile && current_format != 'pc') {
 			document.getElementById("style_dynamic").href = "css/style.css";
 			current_format = 'pc'
 		}
