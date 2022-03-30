@@ -556,7 +556,7 @@
 <script>
 	function isInViewport(element) {
 		const rect = element.getBoundingClientRect();
-		const element_height = element.clientHeight
+		const element_height = element.clientHeight * 0.8
 		//console.log(rect.top, rect.bottom, window.innerHeight)
 		return (
 			rect.top >= -element_height &&
