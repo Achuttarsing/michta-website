@@ -258,23 +258,23 @@
 				],
 				talks: [{
 						subject: "High-dimensional near critical percolation and the torus plateau",
-						event: "UBC Probability Seminar 2021",
+						event: "UBC Probability Seminar",
 						date: "2021-07-17",
 						video_link: "https://ubc.zoom.us/rec/play/R2DgF4Sn1QlYRf7oSp2frNo4lHdF134XJT2KKhECYXMYyx36i5A6_0ecsibVkzBZDDUyTWYneZ7JbTqY._1__OQLRgso0qd2T?continueMode=true",
 						mdp_video_link: "u.z3q4*6"
 					},
 					{
-						subject: "The story of Torus",
-						event: "Pitchfork Conference Center 2021",
-						date: "2021-10-07",
-						video_link: "www.google.com",
+						subject: "High-dimensional near critical percolation and the torus plateau",
+						event: "Percolation Today",
+						date: "2021-11-23",
+						video_link: "https://percolation.ethz.ch/zoom-talks/e-michta-g-slade-high-dimensional-near-critical-percolation-and-the-torus-plateau/",
 						mdp_video_link: ""
 					},
 					{
-						subject: "Probability to be a rockstar",
-						event: "Woodstock : The rebirth",
-						date: "2022-06-03",
-						video_link: "",
+						subject: "Plateaux estimates and their implications for percolation and self-avoiding walks in high-dimensions",
+						event: "LA Probability Forum",
+						date: "2022-05-03",
+						video_link: "https://sites.google.com/view/la-probability-forum/home",
 						mdp_video_link: ""
 					},
 				]
@@ -304,12 +304,12 @@
 		<div class="one_paper">
 			<div class="arxiv_code">{{paper.arxiv_code}}</div>
 			<div class="paper_title">{{paper.title}}</div>
-	    <div class="published_in" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]">{{paper.published_in}}</div>
+		<div class="published_in" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]">{{paper.published_in}}</div>
 		<div class="bibtex_title" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]">Bibtex Citation :</div>
 		<div class="paper_description" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]" v-html="paper.description" ></div>
 		<div class="paper_bibtex" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]" >{{paper.bibtex}}</div>
 	  
-	  <div :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'flex'}]" v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
+	  <div :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'flex'}]" v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main-50.png" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
 	  
 			<div class="paper_controls">
 				<a :href="paper.url" target="_blank" rel="noopener noreferrer"><div class="paper_read_button">Read</div></a>

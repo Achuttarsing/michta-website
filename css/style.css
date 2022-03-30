@@ -40,6 +40,10 @@ body {
 /* 	border: solid green 1px; */
 }
 
+#side_description {
+	font-size: 1.2rem;
+}
+
 #name_title {
 	font-family: 'IBM Plex Mono';
 	font-style: normal;
