@@ -327,15 +327,10 @@
 				}
 			},
 			toggle_bibtex(event) {
-				//alert("ok")
 				this.show_bibtex = !this.show_bibtex
-				console.log(event)
-				console.log(event)
-
 			}
 		},
 		mounted: function() {
-			//window.MathJax.typeset()
 			MathJax.Hub.Typeset();
 		},
 		watch: {},
@@ -364,16 +359,16 @@
 		</div>`,
 		methods: {
 			show_add_cal: function(event){
-				console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
+				//console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
 				event.currentTarget.querySelector(":scope .talk_date").innerText = 'ADD TO CALENDAR'
 			},
 			hide_add_cal: function(event, initial_text){
-				console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
+				//console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
 				event.currentTarget.querySelector(":scope .talk_date").innerText = initial_text
 			},
 			show_video_password: function(event){
 				//alert('ok')
-				console.log(event.currentTarget.parentNode)
+				//console.log(event.currentTarget.parentNode)
 				event.currentTarget.parentNode.querySelector(".video_password").style.display = 'inline'
 			}
 
@@ -546,8 +541,6 @@
 			todo: function() {
 				this.intervalid1 = setInterval(
 					async function() {
-							//console.log("isInViewport")
-							//console.log(isInViewport(document.getElementById('svgTest')))
 							if (isInViewport(document.getElementById("svgTest"))) {
 								this.refresh_percolation();
 							}
@@ -576,7 +569,6 @@
 	let current_format = ''
 
 	window.addEventListener("resize", function() {
-		console.log("resize");
 		const ismobile = window.innerHeight > window.innerWidth;
 		if (ismobile && current_format != 'mobile') {
 			document.getElementById("style_dynamic").href = "css/style_mobile.css";
