@@ -353,6 +353,18 @@ a:active {
   }
 }
 
+.video_password {
+	color: gray;
+}
+
+#passed_talks div {
+	margin-bottom: 1rem;
+}
+
+#future_talks div {
+	margin-bottom: 1rem;
+}
+
 .talk_place {
 }
 /* Utils */

@@ -351,7 +351,7 @@
 			<div class="talk_inter_title"><b>~~~ ALREADY DONE ~~~</b></div>
 			<div id="passed_talks">
 				<div v-for="item in passed_talks">
-					<span class="talk_date" style="text-decoration: line-through;">{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" @mouseover="show_video_password" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span @mouseover="show_video_password" v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="video_password" style="display: none;" > {{item.mdp_video_link != '' ? 'password →' : ''}} <b>{{item.mdp_video_link}}</b></span><span class="talk_place"> @ {{item.event}}</span>
+					<span class="talk_date" style="text-decoration: line-through;">{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" @mouseover="show_video_password" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span @mouseover="show_video_password" v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="video_password" > {{item.mdp_video_link != '' ? 'password →' : ''}} <b>{{item.mdp_video_link}}</b></span><span class="talk_place"> @ {{item.event}}</span>
 				</div>
 			</div>
 			<div class="talk_inter_title"><b>~~~ TO GO ~~~</b></div>

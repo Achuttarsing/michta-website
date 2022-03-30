@@ -340,7 +340,16 @@ a:hover, a:visited, a:link, a:active
 }
 
 .video_password {
+	display: none;
 	color: red;
+}
+
+#passed_talks div {
+	margin-bottom: 1rem;
+}
+
+#future_talks div {
+	margin-bottom: 1rem;
 }
 
 /* Utils */
