@@ -339,6 +339,10 @@ a:hover, a:visited, a:link, a:active
   }
 }
 
+.video_password {
+	color: red;
+}
+
 /* Utils */
 .legend {
 	font-family: 'Roboto';

@@ -4,8 +4,10 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/png" href="src/img/icon/search_icon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 
 	<title>Emmanuel Michta</title>
 
@@ -260,21 +262,21 @@
 						event: "UBC Probability Seminar 2021",
 						date: "2021-07-17",
 						video_link: "https://ubc.zoom.us/rec/play/R2DgF4Sn1QlYRf7oSp2frNo4lHdF134XJT2KKhECYXMYyx36i5A6_0ecsibVkzBZDDUyTWYneZ7JbTqY._1__OQLRgso0qd2T?continueMode=true",
-						mpd_video_link: ""
+						mdp_video_link: "u.z3q4*6"
 					},
 					{
 						subject: "The story of Torus",
 						event: "Pitchfork Conference Center 2021",
 						date: "2021-10-07",
 						video_link: "www.google.com",
-						mpd_video_link: ""
+						mdp_video_link: ""
 					},
 					{
 						subject: "Probability to be a rockstar",
 						event: "Woodstock : The rebirth",
 						date: "2022-06-03",
 						video_link: "",
-						mpd_video_link: ""
+						mdp_video_link: ""
 					},
 				]
 			};
@@ -308,7 +310,7 @@
 		<div class="paper_description" :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]" v-html="paper.description" ></div>
 		<div class="paper_bibtex" :style="[this.show_bibtex ? {'display': 'block'} : {'display': 'none'}]" >{{paper.bibtex}}</div>
 	  
-	  <div :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'block'}]" v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
+	  <div :style="[this.show_bibtex ? {'display': 'none'} : {'display': 'flex'}]" v-if="paper.in_collaboration_with != ''" class="paper_collaboration"><img class="collaboration_gif" src="assets/poignee-de-main.gif" /><span>Joint work with : <b><a v-for="(item, index) in paper.in_collaboration_with" class="wordlink" target="_blank" rel="noopener noreferrer" :key="index" :href="item.url">{{nameWithComma(index) + "\ "}}</a> </b></span></div>
 	  
 			<div class="paper_controls">
 				<a :href="paper.url" target="_blank" rel="noopener noreferrer"><div class="paper_read_button">Read</div></a>
@@ -349,13 +351,14 @@
 			<div class="talk_inter_title"><b>~~~ ALREADY DONE ~~~</b></div>
 			<div id="passed_talks">
 				<div v-for="item in passed_talks">
-					<span class="talk_date" style="text-decoration: line-through;">{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span><span class="talk_place"> @ {{item.event}}</span>
+					<span class="talk_date" style="text-decoration: line-through;">{{item.date}}</span> - <a v-if="item.video_link != ''" class="wordlink" @mouseover="show_video_password" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span @mouseover="show_video_password" v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="video_password" style="display: none;" > {{item.mdp_video_link != '' ? 'password →' : ''}} <b>{{item.mdp_video_link}}</b></span><span class="talk_place"> @ {{item.event}}</span>
 				</div>
 			</div>
 			<div class="talk_inter_title"><b>~~~ TO GO ~~~</b></div>
 			<div id="future_talks">
 				<div v-for="item in future_talks">
-					<a @mouseover="show_add_cal" @mouseleave="hide_add_cal($event,item.date)" :href="'https://calendar.google.com/calendar/u/0/r/eventedit?text='+item.subject.replaceAll(' ','+')+'&dates='+item.date.replaceAll('-','') + '/' + item.date_plus_one.replaceAll('-','')+'&details='+('A conference about ' + item.subject +' conducted by E. Michta at '+item.event+'.').replaceAll(' ','+')+'&location='+item.event.replaceAll(' ','+')"><span class="talk_date">{{item.date}}</span></a> - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="talk_place"> @ {{item.event}}</span><sup id="hour_decount" class="blink"> <b> day-{{item.day_to_go}}</b></sup>
+					<a @mouseover="show_add_cal" @mouseleave="hide_add_cal($event,item.date)" :href="'https://calendar.google.com/calendar/u/0/r/eventedit?text='+item.subject.replaceAll(' ','+')+'&dates='+item.date.replaceAll('-','') + '/' + item.date_plus_one.replaceAll('-','')+'&details='+('A conference about ' + item.subject +' conducted by E. Michta at '+item.event+'.').replaceAll(' ','+')+'&location='+item.event.replaceAll(' ','+')"><span class="talk_date">{{item.date}}</span></a>
+					 - <a v-if="item.video_link != ''" class="wordlink" :href="item.video_link"><span><b><i>{{item.subject}}</i></b></span></a><span v-if="item.video_link == ''"><b><i>{{item.subject}}</i></b></span> <span class="talk_place"> @ {{item.event}}</span><sup id="hour_decount" class="blink"> <b> day-{{item.day_to_go}}</b></sup>
 				</div>
 			</div>
 		</div>`,
@@ -367,6 +370,11 @@
 			hide_add_cal: function(event, initial_text){
 				console.log(event.currentTarget.querySelector(":scope .talk_date").innerText)
 				event.currentTarget.querySelector(":scope .talk_date").innerText = initial_text
+			},
+			show_video_password: function(event){
+				//alert('ok')
+				console.log(event.currentTarget.parentNode)
+				event.currentTarget.parentNode.querySelector(".video_password").style.display = 'inline'
 			}
 
 		},
@@ -556,14 +564,12 @@
 <script>
 	function isInViewport(element) {
 		const rect = element.getBoundingClientRect();
+		const element_height = element.clientHeight
 		//console.log(rect.top, rect.bottom, window.innerHeight)
 		return (
-			rect.top >= 0 &&
-			rect.left >= 0 &&
+			rect.top >= -element_height &&
 			rect.bottom <=
-			(window.innerHeight || document.documentElement.clientHeight) &&
-			rect.right <=
-			(window.innerWidth || document.documentElement.clientWidth)
+			(window.innerHeight || document.documentElement.clientHeight) + element_height
 		);
 	}
 
